@@ -19,12 +19,9 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Stage Chat App</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -36,5 +33,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="/chat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+     var config = {
+        apiKey: "AIzaSyCHUOOhfcg_fwzYuVMAjkS8kB2RHfl-mOI",
+        authDomain: "try-chat-b03cd.firebaseapp.com",
+        databaseURL: "https://try-chat-b03cd.firebaseio.com",
+       projectId: "try-chat-b03cd",
+       storageBucket: "try-chat-b03cd.appspot.com",
+       messagingSenderId: "884879397435"
+     };
+     firebase.initializeApp(config);
+    </script>
   </body>
 </html>
