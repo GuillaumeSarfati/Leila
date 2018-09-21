@@ -4,7 +4,7 @@ var socket = require('socket.io')
 var app = express()
 
 var server = app.listen(4000, () => {
-  console.log('Time to have fun!')    
+  console.log('Time to have fun! Go on port 4000')    
 })
 
 app.use(express.static('./public'))
