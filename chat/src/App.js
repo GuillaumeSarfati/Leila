@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import InputUsername  from './components/InputUsername';
-
+import ButtonInput from './components/ButtonInput'
 
 export default class App extends Component {
 
@@ -9,6 +9,7 @@ export default class App extends Component {
     return (
       <div className="App">
 							<InputUsername />
+              <ButtonInput />
 				</div>
     );
   }
