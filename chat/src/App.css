@@ -25,3 +25,32 @@
   display: center;
   text-align: center;
 }
+
+.well{
+  max-width:200px;
+}
+
+.row{
+  padding:2%;
+}
+
+#messageArea {
+  max-width: 1000px;
+  margin: 10% auto;
+  padding: 20px;
+  padding-top: 50px;
+  background-color: #000000; 
+  opacity: 0.8;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 1);
+  color: white;
+  margin-top: -2px;
+  display: center;
+  text-align: center;
+}
+
+h3, .h3{
+  color: black;
+}
