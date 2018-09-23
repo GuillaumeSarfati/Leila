@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 
 
 export default class InputUsername extends Component {
+    //initial state
     constructor(props){
       super(props);
       this.state = {
         value: ""
       };
-
+      
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    //create methods
     handleChange(event){
       this.setState({value: event.target.value});
     }
@@ -19,6 +21,7 @@ export default class InputUsername extends Component {
     handleSubmit(event){
       console.log('Username ' + this.state.value + ' Submitted')
       event.preventDefault();
+      //this will clear input after submit
       this.setState({value: ""});
     }
 
