@@ -1,23 +1,13 @@
-import React from 'react';
-import './style.css'
+import React, { Component } from "react";
 
+export default class InputUsername extends Component {
 
-class InputUsername extends React.Component {
     render() {
       return (
-        <div className="InputUsername">
-          <div id="chat">
-              <div id="chat-window">
-                  <div id="output"></div>
-                  <div id = "feedback"></div>
-              </div>
-                <input id="handle" type="text" placeholder="Username" />
-                <input id="message" type="text" placeholder="Type your message" />
-                <button id="send">Send</button>
-          </div>
+        <div className="App">
+          
         </div>
       );
     }
   }
-
-  export default InputUsername;
+  
