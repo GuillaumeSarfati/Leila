@@ -27,3 +27,8 @@
   to { transform: rotate(360deg); }
 }
 
+.inputusername {
+  width: 50%;
+  position: fixed;
+  margin: 20%;
+}
