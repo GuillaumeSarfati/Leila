@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+import Room from './Room'
 
 
 export default class InputUsername extends Component {
@@ -22,10 +23,13 @@ export default class InputUsername extends Component {
       console.log('Username ' + this.state.value + ' Submitted')
       event.preventDefault();
       //this will clear input after submit
-      this.setState({value: ""});
+      this.setState({ submitted: true, user: this.state.username});
     }
 
     render() {
+      if (this.state.submitted){
+        return <Room></Room>
+      }
       return (
         <div className="inputusername">
           <form id="userform" onSubmit={this.handleSubmit} ref="form">
@@ -40,3 +44,4 @@ export default class InputUsername extends Component {
       );
     }
   }
+  
