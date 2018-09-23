@@ -21,6 +21,7 @@ export default class InputUsername extends Component {
 
     handleSubmit(event){
       console.log('Username ' + this.state.value + ' Submitted')
+      //stop the form from refreshing the page on submit
       event.preventDefault();
       //this will clear input after submit
       this.setState({ submitted: true, user: this.state.username});
@@ -28,7 +29,7 @@ export default class InputUsername extends Component {
 
     render() {
       if (this.state.submitted){
-        return <Room></Room>
+        return <Room/>
       }
       return (
         <div className="inputusername">
