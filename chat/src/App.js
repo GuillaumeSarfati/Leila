@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import InputUsername  from './components/InputUsername';
 
@@ -9,7 +8,7 @@ export default class App extends Component {
     return (
       <div className="App">
 							<InputUsername />
-				</div>
+			</div>
     );
   }
 }
