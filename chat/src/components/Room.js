@@ -12,6 +12,7 @@ export default class Room extends Component {
 		}
 	}
  
+
 	render(){
         return (
             <div id="messageArea" className="row">
@@ -24,7 +25,7 @@ export default class Room extends Component {
 					<div className="col-md-8 offset-md-8">
 						<div className="chat" id="chat"></div>
 
-						<form id="messageForm" onSubmit={this.handleSubmit}>
+						<form id="messageForm">
 							<div className="form-group">
 								<label> Enter Message </label>
 								<InputMessage />

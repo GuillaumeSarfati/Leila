@@ -35,7 +35,13 @@ export default class InputUsername extends Component {
           <form id="userform" onSubmit={this.handleSubmit} ref="form">
 									<div className="form-group">
 										<label> Enter Username </label>
-										<input type="text" className="form-control" id="username" value={this.state.value} onChange={this.handleChange}></input>
+                    <input 
+                      type="text" 
+                      className="form-control" 
+                      id="username" 
+                      value={this.state.value} 
+                      onChange={this.handleChange}>
+                    </input>
 										<br />
 										<input type="submit" className="btn btn-primary" value="Login"></input>
 									</div>
