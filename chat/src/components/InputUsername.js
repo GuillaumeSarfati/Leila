@@ -7,8 +7,7 @@ export default class InputUsername extends Component {
     constructor(props){
       super(props);
       this.state = {
-        users: [],
-        currentUsers: ""
+        users: "",
       };
       
       this.handleChange = this.handleChange.bind(this);
@@ -19,14 +18,6 @@ export default class InputUsername extends Component {
     handleChange(event){
       this.setState({value: event.target.value});
     }
-
-    // onClick(){
-    //   let usersCopy = this.state.users.slice();
-    //   usersCopy.push(this.state.currentUsers);
-  
-    //   this.setState({users:  usersCopy, currentUsers: ""})
-    // }
-
     handleSubmit(event){
       console.log('Username ' + this.state.value + ' Submitted')
       //stop the form from refreshing the page on submit

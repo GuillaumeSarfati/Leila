@@ -4,6 +4,13 @@ import InputMessage from './InputMessage';
 
 
 export default class Room extends Component {
+	constructor(){
+		super();
+		this.state = {
+			users : "",
+			messages : "",
+		}
+	}
  
 	render(){
         return (
