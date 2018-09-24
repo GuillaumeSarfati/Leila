@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ButtonSubmit from './ButtonSubmit'
 
 export default class Room extends Component {
 	constructor(props){
@@ -19,6 +19,7 @@ export default class Room extends Component {
 	  }
   
 	  handleSubmit(event){
+		//verifies submit
 		console.log('Message ' + this.state.value + ' Submitted')
 		//stop the form from refreshing the page on submit
 		event.preventDefault();
@@ -44,7 +45,7 @@ export default class Room extends Component {
 								<label> Enter Message </label>
 								<textarea className="form-control" id="message" value={this.state.value} onChange={this.handleChange}></textarea>
 								<br />
-								<input type="submit" className="btn btn-primary" value="Send Message" />
+								<ButtonSubmit />
 							</div>
 						</form>
 					</div>

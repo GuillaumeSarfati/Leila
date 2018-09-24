@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class ButtonSubmit extends Component {
-    render(){
+
+const ButtonSubmit = (props) => {
+    
         return(
-            <input type="submit" className="btn btn-primary" value="Submit"></input>
+            <input type="submit" className="btn btn-primary" value="Submit" />
         )
     }
-};
+
+
+export default ButtonSubmit;
