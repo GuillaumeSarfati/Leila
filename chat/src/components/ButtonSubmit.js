@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react'
 
+export default class ButtonSubmit extends Component {
+  constructor(){
+    super();
+    this.state = {
 
-const ButtonSubmit = (props) => {
-    
-        return(
-            <input type="submit" className="btn btn-primary" value="Submit" />
-        )
     }
+  }
 
+   submitButton = () => {
+     this.setState({})
+   }
 
-export default ButtonSubmit;
+  render(){
+    return(
+      <button className="btn btn-primary" onClick={() => this.submitButton()}>Send</button>
+    )
+  }
+}
+

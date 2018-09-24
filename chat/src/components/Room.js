@@ -1,33 +1,10 @@
 import React, { Component } from 'react';
 import ButtonSubmit from './ButtonSubmit'
+import InputMessage from './InputMessage';
+
 
 export default class Room extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-		  value: ""
-		};
-
-		
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	  }
-  
-	  //create methods
-	  handleChange(event){
-		this.setState({value: event.target.value});
-	  }
-  
-	  handleSubmit(event){
-		//verifies submit
-		console.log('Message ' + this.state.value + ' Submitted')
-		//stop the form from refreshing the page on submit
-		event.preventDefault();
-		//this will clear input after submit
-		this.setState({ value: ""});
-	  }
-
-  
+ 
 	render(){
         return (
             <div id="messageArea" className="row">
@@ -43,9 +20,10 @@ export default class Room extends Component {
 						<form id="messageForm" onSubmit={this.handleSubmit}>
 							<div className="form-group">
 								<label> Enter Message </label>
-								<textarea className="form-control" id="message" value={this.state.value} onChange={this.handleChange}></textarea>
+								<InputMessage />
 								<br />
 								<ButtonSubmit />
+								
 							</div>
 						</form>
 					</div>
