@@ -1,50 +1,46 @@
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
-users = [];
-connections = [];
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const Chatkit = require('pusher-chatkit-server')
 
-//run server
-server.listen(process.env.PORT || 3000);
-console.log('server running')
+const app = express();
 
-app.get('/', function(req, res){
-	res.sendFile(__dirname + '/index.html')
-});
+const chatkit = new Chatkit.default({
+    instanceLocator: 'v1:us1:dda8a9b5-5d23-4b7b-84ba-c2ce5bd5ffd8',
+    key : 'adabb617-519a-4410-9c7b-9b386ec6cb24:tQRZBrOF5lInOIcF5hrs0QtbQzsJr4QdTIseie1sJhM='
+})
 
+app.user(bodyParser.urlencoded({ extended: false}))
+app.use(bodyParser.json())
+app.use(cors())
 
-io.sockets.on('connection', function(socket){
-	//all events stay in here
-	connections.push(socket);
-	console.log('connected:%s sockets connected', connections.length);
-	
-	//Disconnect
-	socket.on('disconnect', function(data){
-	//user disconnect
-	users.splice(users.indexOf(socket.username), 1)
-	updateUsernames();
-	connections.splice(connections.indexOf(socket), 1);
-	console.log('Disconnected : %s sockets connected', connections.length);
-	});
+app.post('/users', (req, res) => {
+    const { username } = req.body
+    chatkit
+        .createUser({
+            id: username,
+            name: username
+        })
+        .then(() => res.sendStatus(201))
+        .catch(error => {
+            if(error.error_type === 'services/chatkit/user_already_exists') {
+                res.sendStatus(200) 
+            } else {
+                res.status(error.status).json(error)
+            }
+            })
+        })
 
-	//Send Message
-	socket.on('send message', function(data){
-		console.log(data)
-		io.sockets.emit('new message', {msg: data});
-	})
-	
+app.post('/authenticate', (req, res) => {
+    const authData = chatkit.authenticate({ userId: req.query.user_id})
+    res.status(authData.status).send(authData.body)
+})
 
-	//New user
-	socket.on('new user', function(data, callback){
-		callback(true);
-		socket.username = data;
-		users.push(socket.username);
-		//update usernames
-		updateUsernames();
-	});
-
-	function updateUsernames(){
-		io.sockets.emit('get users', users);
-	}
+const PORT = 3000
+app.listen(PORT, err=> {
+    if(err) {
+        console.error(err)
+    } else {
+        console.log(`Running on port ${Port}`)
+    }
 })
