@@ -9,7 +9,7 @@ export default class App extends Component {
     super()
     this.state ={
       currentUsername : '',
-      currentScreen: 'yourscreen'
+      currentScreen: 'screen'
     }
     this.onUsernameSubmitted = this.onUsernameSubmitted.bind(this)
   }
@@ -31,7 +31,7 @@ export default class App extends Component {
     .catch(error => console.error('error', error))
   }
   render() {
-    if (this.state.currentScreen === 'yourscreen') {
+    if (this.state.currentScreen === 'screen') {
     return <InputUsername onSubmit={this.onUsernameSubmitted} />
     }
     if (this.state.currentScreen === 'ChatScreen') {
