@@ -12,19 +12,11 @@ export default class Room extends Component {
             currentUser: {},
             currentRoom: {},
             messages: [],
-            usersWhoAreTyping: [],
         }
         this.sendMessage = this.sendMessage.bind(this)
-        this.sendTypingEvent = this.sendTypingEvent.bind(this)
+        
     }
     
-   
-    sendTypingEvent() {
-        this.state.currentUser
-          .isTypingIn({ roomId: this.state.currentRoom.id })
-          .catch(error => console.error('error', error))
-     }
-
     sendMessage(text) {
         this.state.currentUser.sendMessage({
             text, 
@@ -55,18 +47,7 @@ export default class Room extends Component {
                         })
                     },
                     
-                    userStartedTyping: user=> {
-                        this.setState({
-                            usersWhoAreTyping: [...this.State.usersWhoAreTyping, user.name],
-                         })
-                     },
-                    userStoppedTyping: user => {
-                        this.setState({
-                             usersWhoAreTyping: this.state.usersWhoAreTyping.filter(
-                            username=> username!== user.name
-                        ),
-                    })
-                },
+                
                 onUserCameOnline: () => this.forceUpdate(),
                 onUserWentOffline: () => this.forceUpdate(),
                 onUserJoined: () => this.forceUpdate(),
